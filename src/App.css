@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+  min-height: 100%;
+  background-color: #eee;
+}
+.container {
+  display: flex;
+  height: 100vh;
+}
+.left-container {
+  width: 200px;
+  position: sticky;
+  align-self: flex-start;
+  top: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #eee;
+  background-color: #eee;
+  z-index: 10;
+  transition: all 300ms ease;
+  transform: translateX(-150px);
+  border-radius: 10px;
+}
+
+.menulist {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  gap: 10px;
+  height: 60px;
+
+  text-align: center;
+  & span {
+    width: 150px;
+  }
+  & i {
+    width: 50px;
+  }
+}
+.left-container a:first-child {
+  font-weight: 700;
+}
+
+.left-container:hover {
+  background-color: #bbb;
+  transform: rotateX(0);
+  border-right: 1px solid #bbb;
+}
+
+.active,
+.menulist:hover {
+  background-color: rgba(97, 51, 139, 0.8);
+  color: white;
+}
+
+.homepage {
+  height: 100dvh;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  user-select: none;
+  font-size: 6rem;
+  position: absolute;
+  left: 0;
+}
+.homepage::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/dictionary.jpeg);
+  background-size: cover;
+  z-index: -1;
+}
+
+.homepage a {
+  margin-left: 220px;
+  background: linear-gradient(45deg, rgb(42, 5, 51), red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.searchword {
+  width: 100%;
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: 0;
+
+  min-width: 700px;
+  gap: 50px;
+}
+
+.searchdiv {
+  width: calc(100% / 3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-sizing: content-box;
+  position: absolute;
+  top: 100px;
+}
+
+.searchForm {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchwordinput {
+  width: 100%;
+  font-size: 1.2rem;
+  box-shadow: none;
+  border-radius: 10px;
+  padding: 10px 100px 10px 10px;
+  border: 1px solid rgb(176, 232, 247, 0.8);
+}
+.searchwordinput::placeholder {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.searchBtn {
+  font-size: 1.4rem;
+  padding: 0.4rem;
+  position: absolute;
+  outline: none;
+  /* right: 8px;
+  margin: auto 0; */
+  background-color: white;
+  border: none;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 8px;
+}
+
+.searchBtn:hover {
+  background-color: rgb(176, 232, 247, 0.8);
+  border-radius: 50%;
+}
+
+.searchresultsdiv {
+  width: 70%;
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  position: absolute;
+  top: 250px;
+}
+
+.searchedword {
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+.phonetic {
+  font-size: 1.7rem;
+  font-weight: 6500;
+  margin-bottom: 2rem;
+}
+.partOfSpeech {
+  font-weight: 700;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  & .definition {
+    font-weight: 400;
+    margin-top: 5px;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  }
+}
+.results {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.noun {
+  background-color: rgba(107, 162, 243, 0.3);
+}
+
+.verb {
+  background-color: rgb(0, 0, 0, 0.1);
+}
+
+.adjective {
+  background-color: rgba(240, 165, 68, 0.2);
+}
+
+.adverb {
+  background-color: rgba(169, 240, 103, 0.2);
+}
+
+.history {
+  margin: 10px;
+  padding: 10px;
+  height: 35px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  & a {
+    border: 1px dashed black;
+    padding: 2px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+}
+
+.history a:hover {
+  background-color: rgb(176, 232, 247, 0.8);
+}
+
+.randomword {
+  width: 100%;
+  /* max-width: 1400px; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  min-width: 700px;
+  gap: 50px;
+}
+.btnGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.refreshBtn,
+.addBtn {
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.refreshBtn:hover,
+.addBtn:hover {
+  background-color: #bbb;
+}
+
+.randomwords {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: 800px;
+  width: 60%;
+  transition: all 0.3s ease;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.randomw {
+  font-size: 1.4rem;
+  border: 1px solid black;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  position: absolute;
+  transition: all 0.3s ease;
+  width: 140px;
+  text-align: center;
+}
+
+.randomw:hover {
+  background-color: rgba(89, 113, 119, 0.4);
+  transform: scale(1.3);
+  font-weight: 600;
+}
+
+.randomwords:has(.randomw:hover) .randomw:not(:hover) {
+  opacity: 0.3;
+}
+
+.wordDesccontainer {
+  position: relative;
+}
+
+.wordDesc {
+  position: absolute;
+  /* top: -63px;
+  left: -15px; */
+  top: -65px;
+  left: 40px;
+  display: none;
+  border: 1px dashed darkblue;
+  border-radius: 5px;
+  padding: 3px;
+  margin: 3px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* .wordDescline {
+  width: 1px;
+  height: 20px;
+  border: 1px solid black;
+  position: absolute;
+  top: -68px;
+  left: 40px;
+  transform: rotate(45deg);
+  margin: 20px;
+  background-color: darkblue;
+  display: none;
+} */
+
+.randomw:hover .wordDesc,
+.wordDesc:hover {
+  display: inline;
+  background-color: #ddd;
+}
+/* .randomleft {
+  width: 150px;
+  height: 800px;
+  border: 1px solid red;
+}
+
+.randomcontainer {
+  width: 850px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
